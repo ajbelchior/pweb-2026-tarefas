@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+
+<h1>Lista de Tarefas</h1>
+
+<ul>
+    {% for tarefa in tarefas %}
+        <li>
+
+            {{ tarefa.nome }}
+
+            {% if tarefa.prazo < hoje %}
+                <strong>(ATRASADA)</strong>
+            {% endif %}
+
+            - {{ tarefa.status }}
+            - {{ tarefa.prazo }}
+
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

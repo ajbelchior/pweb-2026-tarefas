@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog AJCB</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <a href="{% url 'index' %}">
+                Blog AJCB
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <h1>Postagens</h1>
+
+    {% for post in posts %}
+
+        <div class="post">
+
+            <h2>{{ post.titulo }}</h2>
+
+            <p>
+                Data de publicação:
+                {{ post.data_publicacao }}
+            </p>
+
+            <a href="{% url 'post' post.id %}">
+                Ler mais
+            </a>
+
+        </div>
+
+        <hr>
+
+    {% empty %}
+
+        <p>Nenhuma postagem cadastrada.</p>
+
+    {% endfor %}
+
+</main>
+
+<footer>
+    Desenvolvido por AJCB
+</footer>
+
+</body>
+</html>
